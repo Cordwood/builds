@@ -3,16 +3,4 @@
 `).slice(1).map(c=>{let p=!1,d={},f=c.split(`
 `).filter(m=>{if(m==="---")return p=!0,!1;if(!p){let y=m.split(": "),_=y.shift(),z=y.join(": ");d[_]=JSON.parse(z)}return p}).join(`
 `);return{...d,body:f}})[0],i=t.props.children[0].props.children[0];i[0].props.children="Cordwood Changelog",i[1]=` (${n.date})`;let a=t.props.children[2].props.children;a[1].props.href="https://github.com/Cordwood/Cordwood/blob/master/CHANGELOG.md";let u=t.props.children[1];return u.props.children[0]=null,u.props.children[1]=[h.createElement(ht,{changelog:n})],t},!0)}function zr(e,r){k(e,r,{walkable:["props","children","child","sibling"]})}function Yr(e){let r=new Array;for(let[t,o]of Object.entries(e)){let n=Object.entries(o).map(([i,a])=>`${i.replace(/[A-Z]/g,u=>`-${u.toLowerCase()}`)}:${a}`).join(";");r.push(`${t}{${n}}`)}return r.join("")}async function Kr(e){let r={cache:"no-cache"},t=new URL(e.endsWith("/")?e:e+"/"),o=await fetch(t+"manifest.json",r);if(!o.ok)throw new Error(`Could not load manifest for plugin at ${e}`);let n;try{n=await o.json()}catch{throw new Error(`Could not parse manifest for plugin at ${e}`)}let i;try{i=await(await fetch(t+"index.js",r)).text()}catch{throw new Error(`Could not load main file for plugin at ${e}`)}return{manifest:n,url:t,main:i}}var ro=window.eval;async function Jr(e){window.cordwood.plugins.loaded.push(e);let r=ro(e.main)(window.cordwood);r.onLoad&&r.onLoad()}var Wt=()=>v("dispatch",x,e=>{V.fluxLogger&&console.log(e[0])});if(window.cordwood)throw new Error("Cordwood is already injected...");var $t=!1;try{$r(),N.initialize(),Wt(),window.cordwood={utils:{logger:q,findInTree:k,findInReactTree:zr,storage:{get:S.get,set:S.set,remove:S.remove,clear:S.clear},createStyle:Yr},patcher:{...et},webpack:{...yr,common:{...gr}},plugins:{importPlugin:Kr,loadPlugin:Jr,loaded:new Array},uninject:()=>{rr(),Er(),delete window.cordwood}},fetch("https://raw.githubusercontent.com/Cordwood/Cordwood/master/CHANGELOG.md",{cache:"no-store"}).then(e=>e.text().then(r=>Object.assign(window.cordwood,{changelog:r})))}catch(e){$t=!0,q.error(`Cordwood failed to initialize... ${e.stack?e.stack:e.toString()}`)}$t||q.log("Loaded successfully!");})();
-/*!
-  Copyright (c) 2018 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/*!
- * The buffer module from node.js, for the browser.
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 //# sourceURL=Cordwood
